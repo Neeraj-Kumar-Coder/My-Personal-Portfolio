@@ -45,11 +45,11 @@ nav .left span {
     font-size: calc(20px + 1.63vw);
     font-weight: bold;
     color: white;
+    transition: all 250ms linear;
 }
 
 nav .left span:hover {
     text-shadow: 0px 0px 7px white;
-    transition-duration: 0.3s;
 }
 
 nav .navbar {
