@@ -18,7 +18,7 @@ nav .navbar ul li {
 }
 
 nav .navbar ul li a {
-    font-size: 17px;
+    font-size: 3vw;
 }
 
 .skill {
@@ -53,18 +53,23 @@ nav .navbar ul li a {
     .mainsection {
         max-width: 90vw;
     }
+
     .bar {
         max-width: 90vw;
     }
+
     .mainsection p {
         margin-top: 10px;
     }
+
     .skill {
         max-width: 90vw;
     }
+
     .skill p {
         max-width: 90vw;
     }
+
     .aboutme p {
         max-width: 90vw;
     }
