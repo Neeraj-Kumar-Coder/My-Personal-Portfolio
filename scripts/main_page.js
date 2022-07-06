@@ -43,10 +43,10 @@ let mouse = {
     y: undefined
 };
 
-canvas.addEventListener("mousemove", (event) => {
-    mouse.x = event.x;
+window.addEventListener("mousemove", (event) => {
+    mouse.x = event.x + 50;
     mouse.y = event.y;
-    for (let i = 0; i < 5; i++)
+    for (let i = 0; i < 3; i++)
         spots.push(new Particle());
 });
 
