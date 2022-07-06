@@ -1,7 +1,12 @@
+// Alphabets rubberband effect handler
 let alphabets = document.getElementsByClassName("popper");
 root = document.querySelector(":root");
+let timeout = 100;
 
 Array.from(alphabets).forEach((element) => {
+    setTimeout(() => {
+        element.style.transform = "scale(1)";
+    }, timeout += 50);
     element.addEventListener("mouseenter", () => {
         element.classList.add("animateRubberBand");
         setTimeout(() => {
@@ -10,6 +15,7 @@ Array.from(alphabets).forEach((element) => {
     });
 });
 
+// Know more button background on hover handler
 let btn = document.querySelector('.btn');
 btn.addEventListener("mouseover", (event) => {
     root.style.setProperty("--btn-overlay-width", "131%");
@@ -18,6 +24,7 @@ btn.addEventListener("mouseover", (event) => {
     });
 });
 
+// Mouse trail effect
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext('2d');
 
@@ -27,7 +34,6 @@ canvas.height = window.innerHeight;
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    init();
 });
 
 window.addEventListener("mouseout", () => {
