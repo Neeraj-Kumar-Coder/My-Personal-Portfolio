@@ -1,0 +1,72 @@
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.popper {
+    display: inline-block;
+    transition: all 0.3s ease-out;
+    font-family: myFont;
+    color: white;
+}
+
+.popper:hover {
+    color: red;
+}
+
+.animateRubberBand {
+    animation: rubberBand 1s ease-out;
+}
+
+.container {
+    position: relative;
+    margin-left: 8.125rem;
+    padding: 1rem;
+    background-color: #1d1d1d;
+    min-height: 100vh;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 3rem;
+    font-size: 6.4375rem;
+    line-height: 6rem;
+}
+
+#brief {
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: capitalize;
+    width: 60%;
+    line-height: 2rem;
+    padding: 1rem 0;
+    color: #8d8d8d;
+}
