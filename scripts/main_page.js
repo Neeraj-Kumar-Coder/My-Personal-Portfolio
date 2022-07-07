@@ -7,6 +7,7 @@ Array.from(alphabets).forEach((element) => {
     setTimeout(() => {
         element.style.transform = "scale(1)";
     }, timeout += 50);
+
     element.addEventListener("mouseenter", () => {
         element.classList.add("animateRubberBand");
         setTimeout(() => {
@@ -115,3 +116,18 @@ function animate() {
 }
 
 animate();
+
+// Reveal on scroll
+window.addEventListener("scroll", scrollHandler);
+let elements = document.getElementsByClassName("reveal");
+console.log(elements);
+function scrollHandler() {
+    Array.from(elements).forEach((element) => {
+        let windowHeight = window.innerHeight;
+        let revealTop = element.getBoundingClientRect().top;
+        let revealPoint = 100;
+
+        if (revealTop < windowHeight - revealPoint)
+            element.classList.add("active");
+    });
+}
