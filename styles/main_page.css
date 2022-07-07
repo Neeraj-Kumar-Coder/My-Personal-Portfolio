@@ -3,7 +3,7 @@
 }
 
 .active {
-    animation: appear 0.5s linear 0s 1 normal forwards;
+    animation: appear 0.5s linear 0.3s 1 normal forwards;
 }
 
 #canvas {
@@ -150,7 +150,7 @@
     align-items: center;
     justify-content: center;
     margin-left: 8.125rem;
-    padding: 1rem;
+    padding: 0 1rem;
     background-color: #1d1d1d;
     min-height: 100vh;
 }
@@ -182,6 +182,7 @@
 }
 
 .btn {
+    vertical-align: top;
     outline: none;
     opacity: 0;
     position: relative;
