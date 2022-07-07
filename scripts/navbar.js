@@ -6,7 +6,7 @@ Array.from(navItems).forEach((element) => {
         let id = event.target.id;
         let idNumber = parseInt(id.charAt(id.length - 1));
         root.style.setProperty(`--nav-item-width-${idNumber}`, "100%");
-        element.addEventListener("mouseout", (event) => {
+        element.addEventListener("mouseout", () => {
             root.style.setProperty(`--nav-item-width-${idNumber}`, "0%");
         });
     });

@@ -6,6 +6,10 @@
     animation: appear 0.5s linear 0.3s 1 normal forwards;
 }
 
+.red {
+    color: red !important;
+}
+
 #canvas {
     position: absolute;
     top: 0;
@@ -198,6 +202,7 @@
     cursor: pointer;
     overflow: hidden;
     animation: appear 300ms linear 2s 1 normal forwards;
+    transition: all 300ms linear;
 }
 
 .btn:hover {
@@ -218,6 +223,9 @@
 }
 
 #about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     min-height: 100vh;
     padding-left: 5rem;

@@ -43,6 +43,11 @@
     background-color: #181818;
 }
 
+.active-nav-item {
+    pointer-events: none;
+    color: white !important;
+}
+
 .logo-div {
     display: flex;
     flex-direction: column;

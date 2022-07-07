@@ -1,6 +1,30 @@
-// Alphabets rubberband effect handler
-let alphabets = document.getElementsByClassName("popper");
+// Onload
+window.onload = navBarHighlighter;
+
+// Managing navbar section highlighting
+let mainpage = document.querySelector(".title");
+let about = document.querySelector("#about");
 root = document.querySelector(":root");
+
+let items = [mainpage, about];
+function navBarHighlighter() {
+    items.forEach((element, index) => {
+        let windowHeight = window.innerHeight;
+        let revealTop = element.getBoundingClientRect().top;
+        let revealBottom = element.getBoundingClientRect().bottom;
+        if (revealTop <= windowHeight / 2 && revealBottom >= windowHeight / 2) {
+            document.getElementById(`nav-item-${index + 1}`).classList.add("active-nav-item");
+            root.style.setProperty(`--nav-item-width-${index + 1}`, "100%");
+        }
+        else {
+            document.getElementById(`nav-item-${index + 1}`).classList.remove("active-nav-item");
+            root.style.setProperty(`--nav-item-width-${index + 1}`, "0%");
+        }
+    });
+}
+
+// Alphabets rubberband effect handler
+let alphabets = document.getElementsByClassName("title-head");
 let timeout = 100;
 
 Array.from(alphabets).forEach((element) => {
@@ -111,7 +135,7 @@ function handleParticle() {
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     handleParticle();
-    hue = (hue + 1) % Number.MAX_SAFE_INTEGER;
+    hue = (hue + 1) % 361;
     requestAnimationFrame(animate);
 }
 
@@ -120,14 +144,36 @@ animate();
 // Reveal on scroll
 window.addEventListener("scroll", scrollHandler);
 let elements = document.getElementsByClassName("reveal");
-console.log(elements);
+let aboutAlphabets = document.getElementsByClassName("about-head");
+
 function scrollHandler() {
+    navBarHighlighter();
+
+    timeout = 100;
+    Array.from(aboutAlphabets).forEach((element) => {
+        let windowHeight = window.innerHeight;
+        let revealTop = element.getBoundingClientRect().top;
+        let revealPoint = 100;
+        if (revealTop < windowHeight - revealPoint) {
+            setTimeout(() => {
+                element.style.transform = "scale(1)";
+            }, timeout += 50);
+        }
+        element.addEventListener("mouseenter", () => {
+            element.classList.add("animateRubberBand");
+            setTimeout(() => {
+                element.classList.remove("animateRubberBand");
+            }, 1000);
+        });
+    });
+
     Array.from(elements).forEach((element) => {
         let windowHeight = window.innerHeight;
         let revealTop = element.getBoundingClientRect().top;
         let revealPoint = 100;
 
-        if (revealTop < windowHeight - revealPoint)
+        if (revealTop < windowHeight - revealPoint) {
             element.classList.add("active");
+        }
     });
 }
