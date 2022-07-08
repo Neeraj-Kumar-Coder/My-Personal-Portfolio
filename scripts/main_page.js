@@ -148,12 +148,14 @@ animate();
 // Skills Chart
 function meterFiller() {
     let meters = document.getElementsByClassName("meter");
-    let value = 90;
+    let value = 95;
+    let decrementer = 10;
 
     Array.from(meters).forEach((element) => {
         if (element.style.width == "0%") {
             element.style.width = `${value}%`;
-            value -= 10;
+            value -= decrementer;
+            decrementer -= 3;
         }
     });
 }
