@@ -167,6 +167,7 @@ let aboutAlphabets = document.getElementsByClassName("about-head");
 let skillsAlphabets = document.getElementsByClassName("skills-head");
 let skillsChart = document.getElementById("skills-chart");
 let contactAplhabets = document.getElementsByClassName("contact-head");
+let formItems = document.getElementsByClassName("form-item");
 
 function scrollHandler() {
     navBarHighlighter();
@@ -239,4 +240,23 @@ function scrollHandler() {
             element.classList.add("active");
         }
     });
+
+    Array.from(formItems).forEach((element) => {
+        let windowHeight = window.innerHeight;
+        let revealTop = element.getBoundingClientRect().top;
+        let revealPoint = 100;
+
+        if (revealTop < windowHeight - revealPoint) {
+            element.classList.add("active");
+        }
+    });
 }
+
+// Form Submit Button
+let fBtn = document.querySelector(".f-btn");
+fBtn.addEventListener("mouseover", () => {
+    fBtn.innerHTML = "We are just one click away!";
+    fBtn.addEventListener("mouseout", () => {
+        fBtn.innerHTML = "Send Message!";
+    });
+});
