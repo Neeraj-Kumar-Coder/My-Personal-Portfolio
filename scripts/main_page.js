@@ -4,9 +4,10 @@ window.onload = navBarHighlighter;
 // Managing navbar section highlighting
 let mainpage = document.querySelector(".title");
 let about = document.querySelector("#about");
+let skills = document.querySelector("#skills");
 root = document.querySelector(":root");
 
-let items = [mainpage, about];
+let items = [mainpage, about, skills];
 function navBarHighlighter() {
     items.forEach((element, index) => {
         let windowHeight = window.innerHeight;
@@ -141,16 +142,54 @@ function animate() {
 
 animate();
 
+// Skills Chart
+function meterFiller() {
+    let meters = document.getElementsByClassName("meter");
+    let value = 90;
+
+    Array.from(meters).forEach((element) => {
+        if (element.style.width == "0%") {
+            element.style.width = `${value}%`;
+            value -= 10;
+        }
+    });
+}
+
 // Reveal on scroll
 window.addEventListener("scroll", scrollHandler);
 let elements = document.getElementsByClassName("reveal");
 let aboutAlphabets = document.getElementsByClassName("about-head");
+let skillsAlphabets = document.getElementsByClassName("skills-head");
+let skillsChart = document.getElementById("skills-chart");
 
 function scrollHandler() {
     navBarHighlighter();
+    let windowHeight = window.innerHeight;
+    let revealTop = skillsChart.getBoundingClientRect().top;
+    let revealPoint = windowHeight / 2;
+    if (revealTop < windowHeight - revealPoint)
+        meterFiller();
 
     timeout = 100;
     Array.from(aboutAlphabets).forEach((element) => {
+        let windowHeight = window.innerHeight;
+        let revealTop = element.getBoundingClientRect().top;
+        let revealPoint = 100;
+        if (revealTop < windowHeight - revealPoint) {
+            setTimeout(() => {
+                element.style.transform = "scale(1)";
+            }, timeout += 50);
+        }
+        element.addEventListener("mouseenter", () => {
+            element.classList.add("animateRubberBand");
+            setTimeout(() => {
+                element.classList.remove("animateRubberBand");
+            }, 1000);
+        });
+    });
+
+    timeout = 100;
+    Array.from(skillsAlphabets).forEach((element) => {
         let windowHeight = window.innerHeight;
         let revealTop = element.getBoundingClientRect().top;
         let revealPoint = 100;
