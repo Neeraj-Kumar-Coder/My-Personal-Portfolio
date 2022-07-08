@@ -5,9 +5,10 @@ window.onload = navBarHighlighter;
 let mainpage = document.querySelector(".title");
 let about = document.querySelector("#about");
 let skills = document.querySelector("#skills");
+let contact = document.querySelector("#contact");
 root = document.querySelector(":root");
 
-let items = [mainpage, about, skills];
+let items = [mainpage, about, skills, contact];
 function navBarHighlighter() {
     items.forEach((element, index) => {
         let windowHeight = window.innerHeight;
@@ -42,11 +43,13 @@ Array.from(alphabets).forEach((element) => {
 });
 
 // Know more button background on hover handler
-let btn = document.querySelector('.btn');
-btn.addEventListener("mouseover", (event) => {
-    root.style.setProperty("--btn-overlay-width", "131%");
-    event.target.addEventListener("mouseout", () => {
-        root.style.setProperty("--btn-overlay-width", "0%");
+let btns = document.querySelectorAll('.btn');
+Array.from(btns).forEach((element) => {
+    element.addEventListener("mouseover", (event) => {
+        root.style.setProperty("--btn-overlay-width", "131%");
+        event.target.addEventListener("mouseout", () => {
+            root.style.setProperty("--btn-overlay-width", "0%");
+        });
     });
 });
 
@@ -161,6 +164,7 @@ let elements = document.getElementsByClassName("reveal");
 let aboutAlphabets = document.getElementsByClassName("about-head");
 let skillsAlphabets = document.getElementsByClassName("skills-head");
 let skillsChart = document.getElementById("skills-chart");
+let contactAplhabets = document.getElementsByClassName("contact-head");
 
 function scrollHandler() {
     navBarHighlighter();
@@ -190,6 +194,24 @@ function scrollHandler() {
 
     timeout = 100;
     Array.from(skillsAlphabets).forEach((element) => {
+        let windowHeight = window.innerHeight;
+        let revealTop = element.getBoundingClientRect().top;
+        let revealPoint = 100;
+        if (revealTop < windowHeight - revealPoint) {
+            setTimeout(() => {
+                element.style.transform = "scale(1)";
+            }, timeout += 50);
+        }
+        element.addEventListener("mouseenter", () => {
+            element.classList.add("animateRubberBand");
+            setTimeout(() => {
+                element.classList.remove("animateRubberBand");
+            }, 1000);
+        });
+    });
+
+    timeout = 100;
+    Array.from(contactAplhabets).forEach((element) => {
         let windowHeight = window.innerHeight;
         let revealTop = element.getBoundingClientRect().top;
         let revealPoint = 100;
