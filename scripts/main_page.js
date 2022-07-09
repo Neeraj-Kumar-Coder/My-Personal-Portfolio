@@ -155,7 +155,7 @@ function meterFiller() {
         if (element.style.width == "0%") {
             element.style.width = `${value}%`;
             value -= decrementer;
-            decrementer -= 3;
+            decrementer += 3;
         }
     });
 }
