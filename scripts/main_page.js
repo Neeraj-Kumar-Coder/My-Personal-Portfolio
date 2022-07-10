@@ -46,7 +46,7 @@ Array.from(alphabets).forEach((element) => {
 let btns = document.querySelectorAll('.btn');
 Array.from(btns).forEach((element) => {
     element.addEventListener("mouseover", (event) => {
-        root.style.setProperty("--btn-overlay-width", "131%");
+        root.style.setProperty("--btn-overlay-width", "150%");
         event.target.addEventListener("mouseout", () => {
             root.style.setProperty("--btn-overlay-width", "0%");
         });
