@@ -109,6 +109,8 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: #a5a5a5;
+    border-top: 0.1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 0.1px solid rgba(255, 255, 255, 0.1);
     border-collapse: collapse;
     transition: all 300ms linear;
 }

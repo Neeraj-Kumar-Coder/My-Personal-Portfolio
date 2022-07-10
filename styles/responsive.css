@@ -1,7 +1,9 @@
 @media only screen and (max-width: 500px) {
     .navbar-aside {
-        display: none;
+        transform: translateY(-100%);
+        transition: all 300ms linear;
         position: fixed;
+        z-index: 97;
         height: 100%;
         width: 100%;
     }
@@ -12,6 +14,14 @@
 
     .social-div {
         height: 20%;
+    }
+
+    .social-div>ul {
+        justify-content: center;
+    }
+
+    .social-div>ul>li>a>img {
+        margin: 0 0.5rem;
     }
 
     .container {
@@ -27,9 +37,18 @@
         padding: 0 2rem;
     }
 
+    .title-head {
+        font-size: 3.5rem;
+    }
+
+    .nopopper {
+        font-size: 4rem;
+    }
+
     .wrapper {
         font-size: 3rem;
         line-height: 3rem;
+        letter-spacing: 0.03em;
     }
 
     #brief {
@@ -61,5 +80,25 @@
     #skills-chart {
         width: 100%;
         margin-bottom: 3rem;
+    }
+
+    .visible {
+        transform: translateY(0);
+    }
+
+    .nav-res {
+        position: fixed;
+        z-index: 99;
+        top: 0.5rem;
+        right: 0.5rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 0.5rem;
+    }
+
+    .bur {
+        height: 3px;
+        width: 35px;
+        margin: 7px 0;
+        background-color: white;
     }
 }
