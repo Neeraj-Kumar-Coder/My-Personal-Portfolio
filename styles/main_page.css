@@ -125,6 +125,7 @@
 
 .nopopper {
     display: inline-block;
+    position: relative;
     opacity: 0;
     color: white;
     font-weight: bold;
