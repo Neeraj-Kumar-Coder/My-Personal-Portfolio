@@ -87,8 +87,13 @@
     }
 }
 
+.wrapper {
+    letter-spacing: 0.03em;
+}
+
 .tip-data {
     writing-mode: vertical-rl;
+    line-height: 3;
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: white;
@@ -125,22 +130,10 @@
 
 .nopopper {
     display: inline-block;
-    position: relative;
-    opacity: 0;
-    color: white;
-    font-weight: bold;
-    animation: rotateIn 300ms linear 0.5s 1 normal forwards;
-}
-
-.nopopper::before {
-    content: "𝒩";
-    display: inline-block;
+    font-family: myFont;
     opacity: 0;
     color: red;
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0.06em;
+    font-weight: bold;
     animation: rotateIn 300ms linear 0.5s 1 normal forwards;
 }
 
@@ -236,6 +229,7 @@
 }
 
 .content {
+    margin: 3rem 0;
     width: 50%;
 }
 

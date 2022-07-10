@@ -70,20 +70,11 @@
 }
 
 #logo {
-    position: relative;
+    display: inline-block;
+    font-family: myFont;
     font-size: 5rem;
-    height: 5.5rem;
-    font-weight: bold;
-    margin-bottom: 0;
-}
-
-#logo::before {
-    content: "𝒩";
     color: red;
-    position: absolute;
-    z-index: 99;
-    top: 0;
-    left: 5px;
+    font-weight: bold;
 }
 
 #name {
