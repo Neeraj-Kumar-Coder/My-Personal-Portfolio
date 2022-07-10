@@ -1,0 +1,63 @@
+@media only screen and (max-width: 500px) {
+    .navbar-aside {
+        display: none;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+    }
+
+    .logo-div {
+        padding: 0.5rem 0;
+    }
+
+    .social-div {
+        height: 20%;
+    }
+
+    .container {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    .title,
+    #about,
+    #skills,
+    #contact {
+        padding: 0 2rem;
+    }
+
+    .wrapper {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    #brief {
+        letter-spacing: normal;
+        width: 100%;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+
+    #tip-left {
+        left: 0;
+    }
+
+    .tip-data {
+        font-size: 0.7rem;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    #skills {
+        flex-direction: column;
+    }
+
+    #skills-chart {
+        width: 100%;
+    }
+}

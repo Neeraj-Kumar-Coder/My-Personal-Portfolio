@@ -64,13 +64,13 @@
 }
 
 .logo-div-item {
+    display: block;
     margin: 0.25rem;
     color: white;
 }
 
 #logo {
     position: relative;
-    display: inline-block;
     font-size: 5rem;
     height: 5.5rem;
     font-weight: bold;
@@ -87,7 +87,6 @@
 }
 
 #name {
-    display: inline-block;
     font-family: myFont;
     font-size: 1.5rem;
     margin-top: 0;
