@@ -39,7 +39,7 @@
 
     .data {
         font-size: max(2vw, 1rem);
-        line-height: max(2vw, 2rem);
+        line-height: normal;
         font-weight: lighter;
     }
 
