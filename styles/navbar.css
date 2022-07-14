@@ -43,7 +43,7 @@
 
 .active-nav-item {
     pointer-events: none;
-    color: white !important;
+    color: red !important;
 }
 
 .logo-div {
