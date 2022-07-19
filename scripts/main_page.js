@@ -195,8 +195,103 @@ function mouseTrail() {
     animate();
 }
 
+function galacticTrails() {
+    let canvas = document.getElementById("canvas");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
+    });
+
+    let ctx = canvas.getContext("2d");
+
+    const maxRotationSpeed = 0.0005;
+    let rotationSpeed = maxRotationSpeed;
+    let blurRadius = 10;
+    class Particle {
+        constructor(distFromCenter, angle, radius, color) {
+            this.radius = radius;
+            this.color = color;
+            this.angle = angle;
+            this.distFromCenter = distFromCenter;
+        }
+
+        draw() {
+            let x = window.innerWidth / 2 + this.distFromCenter * Math.cos(this.angle);
+            let y = window.innerHeight / 2 + this.distFromCenter * Math.sin(this.angle);
+            ctx.save();
+            ctx.globalAlpha = 0.5;
+            ctx.beginPath();
+            ctx.shadowColor = this.color;
+            ctx.shadowBlur = blurRadius;
+            ctx.arc(x, y, this.radius, 0, 2 * Math.PI);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+            ctx.closePath();
+            ctx.restore();
+        }
+
+        update() {
+            this.angle = (this.angle + rotationSpeed) % (2 * Math.PI);
+            this.draw();
+        }
+    }
+
+    let particles = [];
+    let mouseDown = false;
+    function init() {
+        particles = [];
+        let numberOfParticles = 500;
+        let margin = Math.sqrt(Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2));
+        for (let i = 0; i < numberOfParticles; i++) {
+            let distFromCenter = Math.random() * margin / 2;
+            let rotation = Math.random() * 2 * Math.PI;
+            let radius = Math.random() * 3;
+            let color = "red";
+            particles.push(new Particle(distFromCenter, rotation, radius, color));
+            particles.at(particles.length - 1).update();
+        }
+    }
+
+    let alpha = 1;
+    function animate() {
+        requestAnimationFrame(animate);
+        ctx.fillStyle = `rgba(29, 29, 29, ${alpha})`;
+        ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+        particles.forEach((particle) => {
+            particle.update();
+        });
+        if (mouseDown) {
+            rotationSpeed = Math.min(0.01, rotationSpeed + 0.0001);
+            alpha = Math.max(0.1, alpha - 0.01);
+            blurRadius = 0;
+        }
+        else {
+            rotationSpeed = Math.max(maxRotationSpeed, rotationSpeed - 0.0001);
+            alpha = Math.min(1, alpha + 0.01);
+            if (alpha == 1) blurRadius = 10;
+        }
+    }
+
+    window.addEventListener("mousedown", () => {
+        mouseDown = true;
+    });
+
+    window.addEventListener("mouseup", () => {
+        mouseDown = false;
+    });
+
+    init();
+    animate();
+}
+
 // Effects Array
-let effects = [mouseTrail, fireWorks];
+let effects = [mouseTrail, fireWorks, galacticTrails];
 
 // Onload
 window.onload = () => {
@@ -256,7 +351,7 @@ Array.from(btns).forEach((element) => {
 });
 
 // Random interactive effects
-let numberOfEffects = 2;
+let numberOfEffects = effects.length;
 let index = Math.round(Math.random() * 1000) % numberOfEffects;
 effects[index].call();
 
