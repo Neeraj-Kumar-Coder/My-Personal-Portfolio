@@ -1,3 +1,17 @@
+// Custom cursor
+let cursor = document.getElementById("cursor");
+window.addEventListener("mousemove", (event) => {
+    cursor.style.top = event.clientY + "px";
+    cursor.style.left = event.clientX + "px";
+});
+
+window.addEventListener("click", () => {
+    cursor.classList.add("click");
+    setTimeout(() => {
+        cursor.classList.remove("click");
+    }, 500);
+});
+
 // Utility Functions
 function fireWorks() {
     let canvas = document.getElementById("canvas");
@@ -114,7 +128,7 @@ function mouseTrail() {
     };
 
     window.addEventListener("mousemove", (event) => {
-        mouse.x = event.x + 50;
+        mouse.x = event.x;
         mouse.y = event.y;
         for (let i = 0; i < 3; i++)
             spots.push(new Particle());
@@ -185,7 +199,9 @@ function mouseTrail() {
 let effects = [mouseTrail, fireWorks];
 
 // Onload
-window.onload = navBarHighlighter;
+window.onload = () => {
+    navBarHighlighter();
+};
 
 // Managing navbar section highlighting
 let mainpage = document.querySelector(".title");
