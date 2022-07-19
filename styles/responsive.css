@@ -1,4 +1,8 @@
 @media only screen and (max-width: 1000px) {
+    #cursor {
+        display: none;
+    }
+
     .navbar-aside {
         transform: translateY(-100%);
         transition: all 300ms linear;
