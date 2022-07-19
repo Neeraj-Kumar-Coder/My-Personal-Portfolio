@@ -351,8 +351,7 @@ Array.from(btns).forEach((element) => {
 });
 
 // Random interactive effects
-let numberOfEffects = effects.length;
-let index = Math.round(Math.random() * 1000) % numberOfEffects;
+let index = Math.floor(Math.random() * effects.length);
 effects[index].call();
 
 
