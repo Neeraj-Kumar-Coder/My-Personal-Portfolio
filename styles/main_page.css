@@ -7,41 +7,14 @@
     top: 50vh;
     left: 50vw;
     border: 3px solid red;
+    background-color: red;
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     z-index: 9999;
     pointer-events: none;
-}
-
-#cursor::before,
-#cursor::after {
-    content: "";
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: red;
-    border-radius: 50%;
-}
-
-@keyframes click {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(30);
-    }
-}
-
-#cursor.click::after {
-    animation: click 0.5s ease-out 0s 1 normal forwards;
+    mix-blend-mode: difference;
 }
 
 .active {
